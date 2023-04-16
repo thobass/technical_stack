@@ -1,0 +1,37 @@
+version: "3.9"
+services:
+#  nginx:
+#    container_name: nginx
+#    build:
+#      context: .
+#      dockerfile: dockerfiles/nginx.dockerfile
+#    ports:
+#      - 80:80
+  gitlab:
+  #7LmzHSK/15GBMcqgpJ1e/MUjdv06fWEad/t694sLzp0=
+    container_name: gitlab
+#    depends_on:
+#      - nginx
+#    image: gitlab/gitlab-ce:latest
+    build:
+      context: .
+      dockerfile: dockerfiles/gitlab.dockerfile
+# xTeegpa/zRidXFvRfX4SOnSc0Pnl7xFz1+OPeDO8FGM=
+#    restart: always
+    hostname: gitlab.basset.rocks
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://gitlab.basset.rocks'
+        nginx['enable'] = false
+        web_server['external_users'] = ['www-data','nginx']
+        nginx['listen_https'] = false
+        gitlab_rails['trusted_proxies'] = [ '127.0.0.1' ]
+    ports:
+      - '80:80'
+#      - '8081:8081'
+#      - '8443:443'
+    volumes:
+      - /Users/tbasset/Documents/workspaces/technical-stack/gitlab/config:/etc/gitlab
+      - /Users/tbasset/Documents/workspaces/technical-stack/gitlab/logs:/var/log/gitlab
+      - /Users/tbasset/Documents/workspaces/technical-stack/gitlab/data:/var/opt/gitlab
+    shm_size: '256m'
