@@ -23,9 +23,9 @@ RUN apt-get -y install nginx
 
 #Jenkins installation
 #Download & add repository key
-RUN wget -q -O — https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+RUN wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
 #Getting binary file into /etc/apt/sources.list.d
-RUN sudo sh -c ‘echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list’
+RUN sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 #Updating packages
 RUN sudo apt-get update
 #Installing Jenkins
