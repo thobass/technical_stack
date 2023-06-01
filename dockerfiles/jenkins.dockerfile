@@ -5,17 +5,17 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -y update \
 && apt-get -y upgrade
 #Installing Basic Packages & Utilities in Ubuntu
-RUN apt-get -y install software-properties-common git gnupg sudo nano vim wget curl zip unzip build-essential libtool autoconf uuid-dev pkg-config libsodium-dev lynx-common tcl inetutils-ping net-tools ssh openssh-server openssh-client openssl letsencrypt apt-transport-https telnet locales gdebi lsb-release
+#RUN apt-get -y install software-properties-common git gnupg sudo nano vim wget curl zip unzip build-essential libtool autoconf uuid-dev pkg-config libsodium-dev lynx-common tcl inetutils-ping net-tools ssh openssh-server openssh-client openssl letsencrypt apt-transport-https telnet locales gdebi lsb-release
 #Clear cache
-RUN apt-get clean
+#RUN apt-get clean
 #Jenkins Prerequisites
-RUN sudo apt search openjdk
+#RUN sudo apt search openjdk
 #Install Java version 11 as prerequisite
-RUN apt-get -y install openjdk-11-jdk
-ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-arm64
+#RUN apt-get -y install openjdk-11-jdk
+#ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-arm64
 
 #Install NGinx
-RUN apt-get -y install nginx
+#RUN apt-get -y install nginx
 
 #WORKDIR /etc/nginx/conf.d
 #RUN cp default.sau default.old
@@ -37,4 +37,4 @@ RUN apt-get -y install nginx
 #RUN service jenkins start
 #Expose port 8080
 #EXPOSE 8080
-EXPOSE 80
+#EXPOSE 80
