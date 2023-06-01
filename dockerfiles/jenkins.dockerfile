@@ -27,9 +27,9 @@ RUN wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-
 #Getting binary file into /etc/apt/sources.list.d
 RUN sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 #Updating packages
-RUN sudo apt-get update
+RUN apt-get -y update
 #Installing Jenkins
-RUN sudo apt-get -y install jenkins
+RUN apt-get -y install jenkins
 #Start jenkins
 RUN service jenkins start
 #Expose port 8080
