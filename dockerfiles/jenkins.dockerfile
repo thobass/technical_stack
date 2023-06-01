@@ -1,9 +1,9 @@
 #Importing base image Ubuntu
 FROM ubuntu:latest
-ENV DEBIAN_FRONTEND noninteractive
+#ENV DEBIAN_FRONTEND noninteractive
 #Updating and Upgrading Ubuntu
-RUN apt-get -y update \
-&& apt-get -y upgrade
+#RUN apt-get -y update \
+#&& apt-get -y upgrade
 #Installing Basic Packages & Utilities in Ubuntu
 #RUN apt-get -y install software-properties-common git gnupg sudo nano vim wget curl zip unzip build-essential libtool autoconf uuid-dev pkg-config libsodium-dev lynx-common tcl inetutils-ping net-tools ssh openssh-server openssh-client openssl letsencrypt apt-transport-https telnet locales gdebi lsb-release
 #Clear cache
