@@ -19,7 +19,7 @@ RUN apt-get -y install nginx
 
 #WORKDIR /etc/nginx/conf.d
 #RUN cp default.sau default.old
-#COPY conf/nginx/default.conf .
+COPY conf/nginx/default.conf .
 
 #Jenkins installation
 #Download & add repository key
@@ -29,8 +29,6 @@ RUN curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo t
 RUN echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
   https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
-#Getting binary file into /etc/apt/sources.list.d
-RUN sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 #Updating packages
 RUN apt-get -y update
 #Installing Jenkins
