@@ -1,4 +1,4 @@
 FROM nginx:stable-alpine
 WORKDIR /etc/nginx/conf.d
-COPY conf/nginx.conf .
-RUN mv nginx.conf default.conf
+RUN cp default.conf default.old
+COPY conf/nginx/jenkins.basset.rocks.conf .
