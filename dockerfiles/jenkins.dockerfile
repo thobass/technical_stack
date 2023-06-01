@@ -17,24 +17,24 @@ ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-arm64
 #Install NGinx
 RUN apt-get -y install nginx
 
-WORKDIR /etc/nginx/conf.d
+#WORKDIR /etc/nginx/conf.d
 #RUN cp default.sau default.old
-COPY ../conf/nginx/default.conf .
+#COPY ../conf/nginx/default.conf .
 
 #Jenkins installation
 #Download & add repository key
 #RUN wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
-RUN curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
-  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
-RUN echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
-  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
-  /etc/apt/sources.list.d/jenkins.list > /dev/null
+#RUN curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+#  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+#RUN echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+#  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+#  /etc/apt/sources.list.d/jenkins.list > /dev/null
 #Updating packages
-RUN apt-get -y update
+#RUN apt-get -y update
 #Installing Jenkins
-RUN apt-get -y install jenkins
+#RUN apt-get -y install jenkins
 #Start jenkins
-RUN service jenkins start
+#RUN service jenkins start
 #Expose port 8080
-EXPOSE 8080
+#EXPOSE 8080
 EXPOSE 80
