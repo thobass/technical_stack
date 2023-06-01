@@ -9,7 +9,7 @@ services:
 #    ports:
 #      - '80:80'
   jenkins:
-    container_name: nginx
+    container_name: jenkins
     hostname: 'basset.rocks'
     build:
       context: .
