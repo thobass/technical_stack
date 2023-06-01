@@ -17,9 +17,9 @@ ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-arm64
 #Install NGinx
 RUN apt-get -y install nginx
 
-WORKDIR /etc/nginx/conf.d
-RUN cp default.sau default.old
-COPY conf/nginx/default.conf .
+#WORKDIR /etc/nginx/conf.d
+#RUN cp default.sau default.old
+#COPY conf/nginx/default.conf .
 
 #Jenkins installation
 #Download & add repository key
