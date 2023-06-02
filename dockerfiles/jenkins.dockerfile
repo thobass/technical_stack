@@ -19,7 +19,7 @@ RUN apt-get -y install nginx
 
 WORKDIR /etc/nginx/conf.d
 COPY conf/nginx/default.conf .
-#RUN sudo rm /etc/nginx/sites-available/default
+RUN sudo rm /etc/nginx/sites-enabled/default
 
 #Jenkins installation
 #Download & add repository key
@@ -33,9 +33,8 @@ RUN apt-get -y update
 #Installing Jenkins
 RUN apt-get -y install jenkins
 #Start jenkins
-RUN service jenkins start
-#Expose port 8080
-EXPOSE 8080
+RUN jenkins start
+#Expose port 80
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
