@@ -1,40 +1,12 @@
 version: "3.7"
 services:
-#  nginx:
-#    container_name: nginx
-#    hostname: 'basset.rocks'
-#    build:
-#      context: .
-#      dockerfile: dockerfiles/nginx.dockerfile
-#    ports:
-#      - '80:80'
   jenkins:
     container_name: jenkins
-    hostname: 'basset.rocks'
+    privileged: true
     build:
-      context: .
       dockerfile: dockerfiles/jenkins.dockerfile
+    stdin_open: true
+    tty: true
     ports:
       - '80:80'
-#  gitlab:
-#    image: 'gitlab/gitlab-ce:latest'
-#    container_name: gitlab
-#    restart: always
-#    hostname: 'localhost'
-#    environment:
-#      GITLAB_OMNIBUS_CONFIG: |
-#        external_url 'http://localhost'
-#        nginx['listen_port']=8081
-#    ports:
-#      - '8081:8081'
-#      - '8443:443'
-#    shm_size: '256m'
-#  jenkins:
-#    image: jenkins/jenkins:lts
-#    hostname: 'localhost'
-#    container_name: jenkins
-#    user: root
-#    restart: always
-#    ports:
-#      - '8082:8080'
-#      - '50000:50000'
+      - '8080:8080'
