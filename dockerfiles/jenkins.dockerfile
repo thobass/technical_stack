@@ -19,7 +19,7 @@ RUN apt-get -y install nginx
 
 WORKDIR /etc/nginx/conf.d
 COPY conf/nginx/default.conf .
-RUN sudo rm /etc/nginx/sites-available/default
+#RUN sudo rm /etc/nginx/sites-available/default
 
 #Jenkins installation
 #Download & add repository key
