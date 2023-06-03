@@ -41,4 +41,4 @@ RUN chmod +x launch_services.sh
 #Expose port 80
 EXPOSE 9090
 
-CMD ["launch_services.sh"]
+#CMD ["launch_services.sh"]
