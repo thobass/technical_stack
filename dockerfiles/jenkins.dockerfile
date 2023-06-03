@@ -33,10 +33,8 @@ RUN echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
 RUN apt-get -y update
 #Installing Jenkins
 RUN apt-get -y install jenkins
-#Start jenkins
-WORKDIR /home
-COPY conf/scripts/launch_services.sh .
-RUN chmod +x launch_services.sh
 
 #Expose port 80
 EXPOSE 9090
+
+CMD ["nginx", "-g", "daemon off;"]
