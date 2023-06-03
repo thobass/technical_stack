@@ -9,8 +9,8 @@ services:
 #    ports:
 #      - '80:80'
   jenkins:
-    depends_on:
-      - nginx
+#    depends_on:
+#      - nginx
     container_name: jenkins
     privileged: true
     build:
