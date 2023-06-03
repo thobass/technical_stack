@@ -33,7 +33,7 @@ RUN apt-get -y update
 #Installing Jenkins
 RUN apt-get -y install jenkins
 #Start jenkins
-RUN jenkins start
+RUN service jenkins start
 #Expose port 80
 EXPOSE 80
 
