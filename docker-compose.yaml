@@ -1,22 +1,22 @@
 version: "3.7"
 services:
-  nginx:
-    container_name: nginx
-    hostname: 'basset.rocks'
+#  nginx:
+#    container_name: nginx
+#    hostname: 'basset.rocks'
+#    build:
+#      context: .
+#      dockerfile: dockerfiles/nginx.dockerfile
+#    ports:
+#      - '80:80'
+  jenkins:
+    depends_on:
+      - nginx
+    container_name: jenkins
+    privileged: true
     build:
       context: .
-      dockerfile: dockerfiles/nginx.dockerfile
+      dockerfile: dockerfiles/jenkins.dockerfile
+    stdin_open: true
+    tty: true
     ports:
-      - '80:80'
-#  jenkins:
-#    depends_on:
-##      - nginx
- #   container_name: jenkins
- #   privileged: true
- #   build:
- #     context: .
- #     dockerfile: dockerfiles/jenkins.dockerfile
- #   stdin_open: true
- #   tty: true
- #   ports:
- #     - '9090:9090'
+      - '9090:9090'
