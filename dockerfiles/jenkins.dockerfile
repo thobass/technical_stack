@@ -35,6 +35,6 @@ RUN apt-get -y install jenkins
 #Start jenkins
 RUN service jenkins start
 #Expose port 80
-EXPOSE 80
+EXPOSE 9090
 
 CMD ["nginx", "-g", "daemon off;"]
