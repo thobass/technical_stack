@@ -20,3 +20,16 @@ services:
     tty: true
     ports:
       - '9090:9090'
+  gitlab:
+    image: 'gitlab/gitlab-ce:latest'
+    container_name: gitlab
+    restart: always
+    hostname: 'localhost'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://localhost'
+        nginx['listen_port']=8081
+    ports:
+      - '8081:8081'
+      - '8443:443'
+    shm_size: '256m'

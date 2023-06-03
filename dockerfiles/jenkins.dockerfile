@@ -34,8 +34,11 @@ RUN apt-get -y update
 #Installing Jenkins
 RUN apt-get -y install jenkins
 #Start jenkins
-RUN service jenkins start
+WORKDIR /home
+COPY conf/scripts/launch_services.sh .
+RUN chmod +x launch_services.sh
+
 #Expose port 80
 EXPOSE 9090
 
-#CMD ["nginx", "-g", "daemon off;"]
+CMD ["launch_services.sh"]
