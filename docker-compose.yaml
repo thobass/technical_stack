@@ -18,6 +18,7 @@ services:
       dockerfile: dockerfiles/jenkins.dockerfile
     stdin_open: true
     tty: true
+    command: ./home/launch_services.sh
     ports:
       - '9090:9090'
   gitlab:

@@ -40,5 +40,3 @@ RUN chmod +x launch_services.sh
 
 #Expose port 80
 EXPOSE 9090
-
-ENTRYPOINT ["launch_services.sh"]
