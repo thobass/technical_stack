@@ -16,10 +16,6 @@ services:
     build:
       context: .
       dockerfile: dockerfiles/jenkins.dockerfile
-    stdin_open: true
-    tty: true
-    ports:
-      - '9090:9090'
   gitlab:
     image: 'gitlab/gitlab-ce:latest'
     container_name: gitlab
