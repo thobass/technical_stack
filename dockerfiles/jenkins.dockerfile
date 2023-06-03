@@ -38,4 +38,4 @@ RUN service jenkins start
 #Expose port 80
 EXPOSE 9090
 
-CMD ["nginx", "-g", "daemon off;"]
+#CMD ["nginx", "-g", "daemon off;"]
