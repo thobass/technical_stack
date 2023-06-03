@@ -134,7 +134,7 @@ services:
     image: dependencytrack/frontend
     container_name: dtrack-app
     depends_on:
-      - dtrack-apiserver
+      - dtrack-server
     environment:
         # The base URL of the API server.
         # NOTE:
