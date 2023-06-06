@@ -39,7 +39,7 @@ services:
   dtrack-server:
     image: dependencytrack/apiserver
     container_name: dtrack-server
-      # environment:
+    environment:
       # The Dependency-Track container can be configured using any of the
       # available configuration properties defined in:
       # https://docs.dependencytrack.org/getting-started/configuration/
@@ -88,7 +88,7 @@ services:
       # - ALPINE_HTTP_PROXY_PORT=8888
       # - ALPINE_HTTP_PROXY_USERNAME=
       # - ALPINE_HTTP_PROXY_PASSWORD=
-      # - ALPINE_NO_PROXY=
+      - ALPINE_NO_PROXY=*
       #
       # Optional HTTP Outbound Connection Timeout Settings. All values are in seconds.
       # - ALPINE_HTTP_TIMEOUT_CONNECTION=30
