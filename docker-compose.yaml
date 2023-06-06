@@ -5,41 +5,41 @@ volumes:
 
 services:
 
-  nginx-server:
-    container_name: nginx-server
-    hostname: 'basset.rocks'
-    build:
-      context: .
-      dockerfile: dockerfiles/nginx.dockerfile
-    ports:
-      - '80:80'
-
-  jenkins-server:
-    depends_on:
-      - nginx-server
-    container_name: jenkins-server
-    privileged: true
-    build:
-      context: .
-      dockerfile: dockerfiles/jenkins.dockerfile
-
-  gitlab-server:
-    depends_on:
-      - nginx-server
-    image: 'gitlab/gitlab-ce:latest'
-    container_name: gitlab-server
-    restart: always
-    hostname: 'localhost'
-    environment:
-      GITLAB_OMNIBUS_CONFIG: |
-        external_url 'http://localhost'
-        nginx['listen_port']=8081
-    shm_size: '256m'
+#  nginx-server:
+#    container_name: nginx-server
+#    hostname: 'basset.rocks'
+#    build:
+#      context: .
+#      dockerfile: dockerfiles/nginx.dockerfile
+#    ports:
+#      - '80:80'
+#
+#  jenkins-server:
+#    depends_on:
+#      - nginx-server
+#    container_name: jenkins-server
+#    privileged: true
+#    build:
+#      context: .
+#      dockerfile: dockerfiles/jenkins.dockerfile
+#
+#  gitlab-server:
+#    depends_on:
+#      - nginx-server
+#    image: 'gitlab/gitlab-ce:latest'
+#    container_name: gitlab-server
+#    restart: always
+#    hostname: 'localhost'
+#    environment:
+#      GITLAB_OMNIBUS_CONFIG: |
+#        external_url 'http://localhost'
+#        nginx['listen_port']=8081
+#    shm_size: '256m'
 
   dtrack-server:
     image: dependencytrack/apiserver
     container_name: dtrack-server
-    environment:
+      # environment:
       # The Dependency-Track container can be configured using any of the
       # available configuration properties defined in:
       # https://docs.dependencytrack.org/getting-started/configuration/
@@ -88,7 +88,7 @@ services:
       # - ALPINE_HTTP_PROXY_PORT=8888
       # - ALPINE_HTTP_PROXY_USERNAME=
       # - ALPINE_HTTP_PROXY_PASSWORD=
-      - ALPINE_NO_PROXY=*
+      # - ALPINE_NO_PROXY=
       #
       # Optional HTTP Outbound Connection Timeout Settings. All values are in seconds.
       # - ALPINE_HTTP_TIMEOUT_CONNECTION=30
